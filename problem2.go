@@ -2,18 +2,18 @@ package main
 
 import (
   "fmt"
-  "math"
+  
 )
 
 func isPrime(n int) bool {
   if n == 1 || n == 2 {
     return true
   }
-  if math.Mod(float64(n), 2) == 0 {
+  if n % 2 == 0 {
     return false
   }
-  for i := 3; i <= int(math.Floor(math.Sqrt(float64(n)))); i += 2 {
-    if math.Mod(float64(n), (float64(i))) == 0 {
+  for i := 3; i * i <= n; i += 2 {
+    if n % i == 0 {
       return false
     }
   }
